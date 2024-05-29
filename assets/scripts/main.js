@@ -6,19 +6,18 @@ const options = {
     perPage: 3,
     perMove: 1,
     gap: 20,
-    focus: 2, //activeなスライドを中央に表示
+    focus: 2, //activeなスライドを中央に表示             
 
     breakpoints: {
-        1200: {
+        1060: {
             perPage: 2, // 1000px未満の表示枚数
-            padding: "1.5em", //左右のスライド表示
-
+            padding: "4em", //左右のスライド表示
         },
 
-        768: {
+        880: {
             perPage: 1, // 768px未満の表示枚数
-            padding: "1em", //左右のスライド表示
-        },
+            padding: "3em", //左右のスライド表示
+        }, 
     },
 };
 

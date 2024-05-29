@@ -25,6 +25,12 @@ a {
     }
 }
 
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0;
+    font-weight: regular;
+}
+
 /* ベースのスタイル
 ------------------------------------------*/
 body {
@@ -143,7 +149,6 @@ body {
 @mixin baseBtn() {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    // column-gap: 8px;
     align-items: center;
     width: 350px;
     padding: 12px 8px;
@@ -228,7 +233,7 @@ header .btn-arrow {
 h3 .title__top {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
     gap: 5px;
     color: #4d2b1b;
     font-size: 18px;
@@ -295,8 +300,9 @@ h3 .deco-title {
 
         @include media-min {
             height: 92px;
-            max-width: 1030px;
-            padding: 0;
+            max-width: 1070px;
+            padding-left: 20px;
+            padding-right: 20px;
         }
     }
 }
@@ -494,7 +500,7 @@ h3 .deco-title {
         background-color: rgba(255, 255, 255, 0.3);
         width: 188px;
         height: 107px;
-        box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.25);
+        box-shadow: 5px 5px 0px 0px rgba(89, 89, 89, 0.2);
 
         display: flex;
         justify-content: flex-start;
@@ -529,7 +535,6 @@ h3 .deco-title {
         font-size: 13px;
         padding: 2px 5px;
         margin-bottom: 10px;
-        // letter-spacing: 1.1;
 
         @include media-min {
             font-size: 29.25px;
@@ -687,12 +692,12 @@ h3 .deco-title {
     }
 
     &::before {
-        rotate: -30deg;
+        transform:rotate(-30deg);
         margin-right: 13px;
     }
 
     &::after {
-        rotate: 30deg;
+        transform: rotate(30deg);
         margin-left: 4px;
     }
 }
@@ -872,7 +877,6 @@ h3 .deco-title {
 -----------------------------------------*/
 #points {
     margin-top: 40px;
-    // margin-bottom: 40px;
     padding-top: 30px;
     padding-bottom: 20px;
     background-color: $color-bg;
@@ -903,11 +907,8 @@ h3 .deco-title {
 .points__title {
     padding-bottom: 10px;
 
-    @include media-min {
-        // padding: 10px 0;
-    }
-
-    &__top {
+    &__top title__top{
+        align-items: baseline;
 
         @include media-min {
             gap: 10px;
@@ -921,7 +922,10 @@ h3 .deco-title {
                 width: 264px;
             }
         }
+    }
 
+    &__top > span {
+        font-weight: 500;
     }
 }
 
@@ -940,7 +944,7 @@ h3 .deco-title {
         margin-top: 12px;
 
         @include media-min {
-            margin-top: 46px;
+            margin-top: 38px;
         }
     }
 
@@ -1037,6 +1041,10 @@ h3 .deco-title {
         padding-left: 0;
         padding-right: 0;
         padding-bottom: 17px;
+
+        @include media-min {
+            padding-bottom: 30px;
+        }
     }
 
     .point__contentBox__contents p {
@@ -1135,7 +1143,7 @@ h3 .deco-title {
     margin-top: 32px;
 
     .other__container__inner {
-        padding-bottom: 32px;
+        padding-bottom: 7px;
 
         @include media-min {
             margin-top: 15px;
@@ -1165,7 +1173,7 @@ h3 .deco-title {
 
         @include media-min {
             grid-template-columns: repeat(2, 1fr);
-            margin-top: 48px;
+            margin-top: 38px;
 
         }
     }
@@ -1188,6 +1196,7 @@ h3 .deco-title {
 
             @include media-min {
                 font-size: 28px;
+                padding: 30px 0 30px 0;
             }
         }
 
@@ -1196,7 +1205,12 @@ h3 .deco-title {
             border-color: $color-main;
             border-top: none;
             text-align: left;
-            padding: 18px;
+            padding: 14px 18px 18px 18px;
+
+            @include media-min {
+                padding-top: 10px;
+            }
+
         }
 
         p {
@@ -1210,7 +1224,11 @@ h3 .deco-title {
         }
 
         img {
-            margin-top: 10px;
+            margin-top: 14px;
+
+            @include media-min {
+                margin-top: 16px;
+            }
         }
     }
 }
@@ -1218,18 +1236,22 @@ h3 .deco-title {
 /* voice */
 
 #voice {
-    margin-top: 14px;
+    // margin-top: 14px;
+    background-color: $color-bg;
 
-    @include media-min() {
-        margin-top: 67px;
+    @include media-min {
+        margin-top: 28px;
+        padding-top: 40px;
+        padding-bottom: 78px;
     }
 }
 
-.voice__title >span  {
+#voice .voice__title >span  {
     margin-bottom: 18px;
 
-    @include media-min() {
-        margin-bottom: 44px;
+    @include media-min {
+        margin-top: 0;
+        margin-bottom: 36px;
     }
 }
 
@@ -1237,10 +1259,13 @@ h3 .deco-title {
 //splide の設定
 
 .voice__container__inner.container__inner {
+    margin-top: 14px;
+    padding: 21px 0 50px 0;
+    
     @include media-min {
+        padding: 0 20px;
         width: 70.8vw;
         margin: 0 auto;
-        oiutline: pink 1px solid;
     }
 }
 
@@ -1278,6 +1303,8 @@ h3 .deco-title {
 
 .voice__contentBox {
     @include baseContentBox();
+        display: flex;
+        flex-direction: column;
 
     &__title {
         height: 44px;
@@ -1288,7 +1315,8 @@ h3 .deco-title {
         padding: 16px;
         display: grid;
         grid-template-columns: 96px 1fr;
-        gap: 10px;
+        gap: 7px;
+        flex-grow: 1;
     }
 
     &__contents__textBox {
@@ -1327,10 +1355,10 @@ h3 .deco-title {
 
 // cv 3回目
 #cv-3 {
-    margin-top: 64px;
+    margin-top: 12px;
 
     @include media-min() {
-        margin-top: 84px;
+        margin-top: 0;
     }
 }
 
@@ -1353,7 +1381,7 @@ h3 .deco-title {
 
         @include media-min {
             height: 128px;
-            margin-top: 54px;
+            margin-top: 58px;
 
         }
     }
