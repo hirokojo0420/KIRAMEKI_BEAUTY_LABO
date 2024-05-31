@@ -25,7 +25,12 @@ a {
     }
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
     padding: 0;
     font-weight: regular;
@@ -128,22 +133,18 @@ body {
     margin: 0 auto;
 
     @include media-min {
-        // width: clamp(780px, 100vw, 1000px);
         max-width: 1300px;
     }
 
-
-
     .container__inner {
         width: 100%;
-        padding: 0 20px;
+        padding: 0;
 
         @include media-min(768px) {
-            padding: 0 32px; //仮
+            padding: 0 32px;
         }
     }
 }
-
 
 /*button style*/
 @mixin baseBtn() {
@@ -201,7 +202,6 @@ body {
             border-right: 3px solid #fff;
             width: 20px;
             height: 20px;
-            // right: 48px;
         }
     }
 }
@@ -210,24 +210,6 @@ body {
     @include baseBtnArrow();
 }
 
-header .btn-arrow {
-
-    @include baseBtnArrow();
-
-    &::after {
-        width: 1.5vw;
-        height: 1.5vw;
-
-        @include media-min {
-            border-top: 2px solid #fff;
-            border-right: 2px solid #fff;
-            width: 10px;
-            height: 10px;
-            right: 16px;
-        }
-    }
-
-}
 
 // h3のタイトル上のスタイル
 h3 .title__top {
@@ -329,7 +311,6 @@ h3 .deco-title {
     }
 
     .btn {
-        // padding: 0 21px 2px 12px;
         border-radius: 40px;
         font-size: 12px;
 
@@ -345,15 +326,13 @@ h3 .deco-title {
 
     .btn-cv {
         //予約へのリンク
-        // width: 174px;
-        width: clamp(100px, 45vw, 200px);
-
+        width: clamp(135px, 45vw, 200px);
         letter-spacing: 0.04em;
 
         @include media-min {
-            width: clamp(200px, 21.153846vw, 300px);
+            width: clamp(200px, 26vw, 300px);
             letter-spacing: 0;
-
+            line-height: 1.1;
         }
 
         span {
@@ -362,7 +341,6 @@ h3 .deco-title {
             @include media-min() {
                 font-size: clamp(18px, 1.45vw, 21px);
             }
-
         }
 
         span>span {
@@ -375,6 +353,23 @@ h3 .deco-title {
     }
 }
 
+header .btn-arrow {
+
+    @include baseBtnArrow();
+
+    &::after {
+        width: 1.5vw;
+        height: 1.5vw;
+
+        @include media-min {
+            border-top: 2px solid #fff;
+            border-right: 2px solid #fff;
+            width: 10px;
+            height: 10px;
+            right: 16px;
+        }
+    }
+}
 
 .btn-contact {
     //お問い合わせへのリンク
@@ -383,18 +378,12 @@ h3 .deco-title {
     letter-spacing: 0;
     font-size: 12px;
 
-
-
-
     @include media-min {
         width: 189px;
         text-align: center;
         font-size: clamp(18px, 1.45vw, 21px);
-
     }
 }
-
-
 
 
 /* mainvisual 
@@ -404,212 +393,224 @@ h3 .deco-title {
     background-color: $color-main;
 
     &__container {
-        display: flex;
         color: $color-text-white;
-        text-align: center;
-        max-width: 450px;
-        align-items: flex-start;
-        justify-content: space-between;
-
-        position: relative;
 
         @include media-min {
-            max-width: 1000px;
-            padding: 0;
-            justify-content: space-between;
+            max-width: 1030px;
         }
     }
-}
 
-.container__inner.mainvisual__container__inner {
-    display: flex;
-    padding: 0;
-    justify-content: space-between;
+    &__container__inner {
+        padding: 0;
+        margin: 0 auto;
 
-    @include media-min {
-        padding: 0 16px;
     }
 }
 
-// mainvisual モデル画像
-.mainvisual__img-box {
-    width: 210px;
-    height: 217px;
+.mainvisual__gridWrapper {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
     overflow: hidden;
 
-    position: absolute;
-    bottom: 0;
-    left: 5px;
+    display: grid;
+    grid-template-rows: 97px 1fr;
+    grid-template-columns: 1fr 1fr;
 
     @include media-min {
-        width: 486px;
-        height: 503px;
-        margin-top: -100px;
-        margin-left: -30px;
+        max-width: 1030px;
+        grid-template-rows: auto max-content;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
-.mainvisual__img {
+// 背景(モデル画像）
+.mainvisual__background {
+
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    .mainvisual__imgWrapper {
+        width: 210px;
+        max-width: 210px;
+        height: 217px;
+        overflow: hidden;
+        transform: translateX(4px);
+
+        @include media-min {
+            width: 480px;
+            max-width: 500px;
+            height: 500px;
+            transform: translateX(-32px);
+        }
+
+        .mainvisual__img {
+            height: auto;
+        }
+    }
+}
+
+//前面 左側テキスト配置
+.mainvisual__foreground__left {
+    grid-row: 1 / 3;
+    grid-column: 1 / 2;
+    z-index: 99;
+}
+
+//前面 右側テキスト配置
+.mainvisual__foreground__right {
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-end;
+    right: 0;
+    width: 96.4%;
+
+    @include media-min {
+        width: 86.9%;
+    }
+}
+
+//mainvisual 各grid内のスタイル
+// mainvisual タイトル h2
+.mainvisual__contents__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     width: 100%;
-    height: auto;
-    object-position: top;
-}
+    margin-top: 2px;
+    margin-left: 4px;
+    margin-bottom: 2px;
 
+    @include media-min {
+        width: 90%;
+        align-items: flex-start;
+    }
 
-// mainvisual 左側
-.mainvisual__contents__left {
-
-    .mainvisual__title {
-        position: absolute;
-        width: 204px;
-        line-height: 1.2;
-        margin-top: 22px;
+    &__logo {
 
         @include media-min {
-            width: 533px;
-            margin-top: 0;
-            align-items: flex-end;
-            // z-index: 999;
+            display: flex;
+            flex-direction: column;
+            width: 120%;
         }
     }
 
-    .mainvisual__subtitle {
-        font-size: 18px;
-        display: block;
+    &__logo img {
+        margin-top: 20px;
+
+        @include media-min {
+            margin-top: 3px;
+            width: 100%;
+        }
+    }
+
+    &__logo > span {
         margin-top: 5px;
-        z-index: 999;
+        font-size: 18px;
 
         @include media-min {
+            text-align: right;
+            margin-top: 0;
             font-size: 36px;
-            margin-top: -12px;
-            z-index: 999;
+            transform: translate(8px, -20px);
         }
     }
 }
 
+// mainvisual 右上
+.mainvisual__contents__firstPrice_wrapper {
 
-// mainvisual 右側
-.mainvisual__contents__right {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 5px 5px 0px 0px rgba(89, 89, 89, 0.2);
+    width: 100%;
 
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 22px ;
+
+    @include media-min {
+        width: 100%;
+        padding: 43px 0px ;
+        gap: 16px;
+
+    }
+}
+
+
+.mainvisual__contents__firstPrice__text {
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    width: 5rem;
 
-    &__firstPrice_wrapper {
-
-        background-color: rgba(255, 255, 255, 0.3);
-        width: 188px;
-        height: 107px;
-        box-shadow: 5px 5px 0px 0px rgba(89, 89, 89, 0.2);
-
-        display: flex;
-        justify-content: flex-start;
-        padding-left: 27px;
-        gap: 6px;
-
-        @include media-min {
-
-            width: 423px;
-
-            height: 222px;
-            padding-left: 57px;
-            margin-left: auto;
-
-        }
+    @include media-min {
+        width: 7rem;
     }
 }
 
-.mainvisual__contents__right__firstPrice-left {
-    @include media-min {
-        margin-top: 42px;
-        justify-content: flex-start;
-    }
+.mainvisual__contents__firstPrice__text span {
 
-    span {
-        display: block;
-    }
-
-    span:nth-child(1) {
-        background-color: #fff;
+    &:nth-child(1) {
+        background: #fff;
         color: $color-main;
+        padding: 3px 6px;
         font-size: 13px;
-        padding: 2px 5px;
-        margin-bottom: 10px;
 
         @include media-min {
-            font-size: 29.25px;
-            margin-bottom: 20px;
-        }
+            
+            font-size: 30px;
+            padding: 4px 8px;
+        } 
     }
-
-    span:nth-child(2) {
+    &:nth-child(2) {
         font-size: 24px;
-        line-height: 1;
 
         @include media-min {
-            font-size: 54px;
+            font-size: 3.85em;
+            display: block;
         }
     }
 }
 
-.mainvisual__contents__right__firstPrice-right {
-    margin-left: 3px;
+.mainvisual__contents__firstPrice__price  {
+    width: 80%;
 
     @include media-min {
-        margin-left: 18px;
-
-    }
-
-    span {
-        display: inline-block;
-        color: #fffd7a;
-    }
-
-    span.price {
-        font-size: clamp(40px, 19.4871794vw, 72px);
-        line-height: 1;
-
-        @include media-min {
-            font-size: 171px;
-        }
-    }
-
-    span.yen {
-        font-size: 0.5em;
-
-        @include media-min {
-            font-size: 0.47368421em;
-        }
-
+        width: 40%; 
     }
 }
 
-.mainvisual__contents__right__bottom {
-    justify-content: flex-end;
-
-    @include media-min {
-        // top: 40%;
-        // right: 0;
-    }
-}
+// mainvisual 右下
 
 .mainvisual__regularprice {
 
     display: flex;
     justify-content: flex-end;
-    margin-top: 8px;
-    margin-right: 27px;
+    margin-top: 7px;
+    margin-right: 2em;
+    margin-bottom: 20px;
 
     @include media-min {
         margin-right: 61px;
+        margin-bottom: 30px;
     }
-
 
     &__num {
         font-size: 14px;
 
         @include media-min {
-            font-size: 26.48px;
+            font-size: 26px;
         }
     }
 
@@ -617,38 +618,42 @@ h3 .deco-title {
         font-size: 9px;
 
         @include media-min {
-            font-size: 17.02px;
+            font-size: 17px;
         }
     }
-
 }
 
-.mainvisual__contents__right__merits ul {
-    margin-top: 23px;
-    margin-bottom: 28px;
+.mainvisual__contents__merits ul {
+    text-align: center;
     display: flex;
     align-items: center;
     row-gap: 12px;
+    margin-bottom: 27px;
 
     @include media-min {
-        margin-top: 36px;
-        margin-right: 0;
-        row-gap: 20px;
-        margin-bottom: 56px;
+        min-width: 175px;
+        row-gap: 16px;
+        margin-top: 20px;
+        margin-bottom: 50px;
     }
 }
 
-.mainvisual__contents__right__merits__list {
+.mainvisual__contents__merits__list {
     flex-direction: column;
 
     li {
-        width: 133px;
+        width: 70%;
         height: 35px;
         border: 1px solid #fff;
+        background-color: $color-main;
         font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         @include media-min {
-            width: 423px;
+            width: 100%;
+            max-width: 100%;
             height: 72px;
             font-size: 28px;
             line-height: 72px;
@@ -662,7 +667,7 @@ h3 .deco-title {
     padding-bottom: 14px;
 
     @include media-min {
-        padding-bottom: 26px;
+        padding-bottom: 28px;
     }
 }
 
@@ -692,7 +697,7 @@ h3 .deco-title {
     }
 
     &::before {
-        transform:rotate(-30deg);
+        transform: rotate(-30deg);
         margin-right: 13px;
     }
 
@@ -902,12 +907,10 @@ h3 .deco-title {
     }
 }
 
-
-
 .points__title {
     padding-bottom: 10px;
 
-    &__top title__top{
+    &__top title__top {
         align-items: baseline;
 
         @include media-min {
@@ -924,7 +927,7 @@ h3 .deco-title {
         }
     }
 
-    &__top > span {
+    &__top>span {
         font-weight: 500;
     }
 }
@@ -1023,7 +1026,7 @@ h3 .deco-title {
     .points__compare__left__box__imgBox {
 
         @include media-min {
-        // width: 500px;
+            // width: 500px;
         }
     }
 
@@ -1210,7 +1213,6 @@ h3 .deco-title {
             @include media-min {
                 padding-top: 10px;
             }
-
         }
 
         p {
@@ -1234,7 +1236,6 @@ h3 .deco-title {
 }
 
 /* voice */
-
 #voice {
     // margin-top: 14px;
     background-color: $color-bg;
@@ -1246,7 +1247,7 @@ h3 .deco-title {
     }
 }
 
-#voice .voice__title >span  {
+#voice .voice__title>span {
     margin-bottom: 18px;
 
     @include media-min {
@@ -1255,13 +1256,12 @@ h3 .deco-title {
     }
 }
 
-//slider splide利用 
+//slider 
 //splide の設定
-
 .voice__container__inner.container__inner {
     margin-top: 14px;
     padding: 21px 0 50px 0;
-    
+
     @include media-min {
         padding: 0 20px;
         width: 70.8vw;
@@ -1279,32 +1279,32 @@ h3 .deco-title {
     bottom: -36px;
     gap: 1rem;
 
-    @include media-min(){
+    @include media-min() {
         bottom: -28px;
     }
 
     &__page {
-        background: $color-main;
         /* ページネーションの色を指定 */
-        opacity: .3;
+        background: $color-main;
         /* 非アクティブなページネーションの透過率を上げる */
+        opacity: .3;
         width: 15px;
         height: 15px;
         margin: 0;
     }
 
     &__page.is-active {
-        transform: scale(1);
         /* ページネーションのサイズを統一 */
-        opacity: 1;
+        transform: scale(1);
         /* アクティブなページネーションの透過を無効にする */
+        opacity: 1;
     }
 }
 
 .voice__contentBox {
     @include baseContentBox();
-        display: flex;
-        flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
     &__title {
         height: 44px;
@@ -1397,7 +1397,3 @@ h3 .deco-title {
         }
     }
 }
-
-// .footer__logoImgBox img {
-//     width: 100px;
-// }

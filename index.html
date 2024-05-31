@@ -48,51 +48,60 @@
         <!-- #main visual -->
         <section id="mainvisual" class="mainvisual">
             <div class="container mainvisual__container">
-                <div class="container__inner mainvisual__container__inner">
-                    <div class="mainvisual__img-box">
-                        <picture class="mainvisual__img">
-                            <source media="(min-width: 768px)"
-                                srcset="./assets/images/mainvisual/mainvisual_woman_pc50.png">
-                            <img src="./assets/images/mainvisual/mainvisual_woman_sp25.png" alt="">
-                        </picture>
+                <div class="container__inner mainvisual__gridWrapper">
+                    <!-- 背景 画像 -->
+                    <div class="mainvisual__background">
+                        <div class="mainvisual__imgWrapper">
+                            <picture class="mainvisual__img">
+                                <source media="(min-width: 768px)"
+                                    srcset="./assets/images/mainvisual/mainvisual_woman_pc50.png">
+                                <img src="./assets/images/mainvisual/mainvisual_woman_sp25.png" alt="">
+                            </picture>
+                        </div>
                     </div>
-                    <div class="mainvisual__contents__left">
-                        <h2 class="mainvisual__title fw-regular flex-column-center">
+                    <!-- 前面 コンテンツ左-->
+                    <div class="mainvisual__foreground__left mainvisual__contents__title">
+                        <h2 class="mainvisual__contents__title__logo fw-regular">
                             <picture>
                                 <source media="(min-width: 768px)"
                                     srcset="./assets/images/mainvisual/main_title_pc.png">
                                 <img src="./assets/images/mainvisual/main_title_sp.png" alt="全身脱毛">
                             </picture>
-                            <span class="mainvisual__subtitle">（顔・VIO込）</span>
+                            <span>（顔・VIO込）</span>
                         </h2>
                     </div>
-                    <div class="mainvisual__contents__right">
-                        <div class="mainvisual__contents__right__firstPrice_wrapper">
-                            <div class="mainvisual__contents__right__firstPrice-left flex-column-center">
-                                <span class="bold">今だけ</span>
-                                <span class="bold">初月</span>
+                    <!-- 前面 コンテンツ右-->
+                    <div class="mainvisual__foreground__right">
+                        <strong class="mainvisual__foreground mainvisual__contents__firstPrice_wrapper">
+                            <div class="mainvisual__contents__firstPrice__text">
+                                <span class="fw-bold">今だけ</span>
+                                <span class="fw-bold">初月</span>
                             </div>
-                            <div class="mainvisual__contents__right__firstPrice-right flex-column-center">
-                                <span class="price fw-bold">0<span class="yen fw-bold">円</span></span>
+                            <div class="mainvisual__contents__firstPrice__price ">
+                                <picture>
+                                    <source media="(min-width: 768px)"
+                                        srcset="./assets/images/mainvisual/main_0yen_pc.png">
+                                    <img src="./assets/images/mainvisual/main_0yen_sp.png" alt="0円">
+                                </picture>
+                            </div>
+                        </strong>
+                        <!-- 前面 コンテンツ右下-->
+
+                        <div class="mainvisual__regularprice">
+                            <div class="mainvisual__regularprice__num outfit fw-regular">2,480<span
+                                    class="mainvisual__regularprice__unit">円／月</span>
                             </div>
                         </div>
-                        <div class="mainvisual__contents__right__bottom">
-                            <div class="mainvisual__regularprice">
-                                <div class="mainvisual__regularprice__num outfit fw-regular">2,480<span
-                                        class="mainvisual__regularprice__unit">円／月</span>
-                                </div>
-                            </div>
-                            <div class="mainvisual__contents__right__merits">
-                                <ul class="mainvisual__contents__right__merits__list">
-                                    <li>通い放題</li>
-                                    <li>追加料金なし</li>
-                                    <li>安心サポート</li>
-                                </ul>
-                            </div>
+                        <div class="mainvisual__contents__merits">
+                            <ul class="mainvisual__contents__merits__list">
+                                <li>通い放題</li>
+                                <li>追加料金なし</li>
+                                <li>安心サポート</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> <!--mainvisual__gridWrapperここまで -->
         </section>
         <!-- present -->
         <section id="present">
@@ -371,10 +380,10 @@
     </main>
     <footer class="footer">
         <div class="container footer__container flex-column-center">
-                <picture class="footer__container__logoImgBox ">
-                    <source srcset="./assets/images/footer/footer_logo_pc.png" media="(min-width: 768px)">
-                    <img src="./assets/images/footer/footer_logo_sp.png" alt="KIRAMEKI BEAUTY LABO">
-                </picture>
+            <picture class="footer__container__logoImgBox ">
+                <source srcset="./assets/images/footer/footer_logo_pc.png" media="(min-width: 768px)">
+                <img src="./assets/images/footer/footer_logo_sp.png" alt="KIRAMEKI BEAUTY LABO">
+            </picture>
         </div>
     </footer>
 

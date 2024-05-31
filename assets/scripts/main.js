@@ -6,7 +6,7 @@ const options = {
     perPage: 3,
     perMove: 1,
     gap: 20,
-    focus: 2, //activeなスライドを中央に表示             
+    focus: 2, //activeなスライドを中央に表示
 
     breakpoints: {
         1060: {
