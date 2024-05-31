@@ -98,6 +98,11 @@ body {
     font-family: "Outfit", serif;
 }
 
+.notosans {
+    font-family: "Noto Sans JP", serif;
+}
+.noto
+
 /* flexレイアウト */
 .flex-row-center {
     display: flex;
@@ -382,7 +387,12 @@ header .btn-arrow {
         width: 189px;
         text-align: center;
         font-size: clamp(18px, 1.45vw, 21px);
+
+        &:hover {
+            background-color: #f86d94;
+        }
     }
+    
 }
 
 
