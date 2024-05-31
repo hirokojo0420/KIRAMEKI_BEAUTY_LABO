@@ -93,8 +93,11 @@ body {
   font-family: "Outfit", serif;
 }
 
-/* flexレイアウト */
-.flex-row-center {
+.notosans {
+  font-family: "Noto Sans JP", serif;
+}
+
+.noto .flex-row-center {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -367,6 +370,9 @@ header .btn-arrow::after {
     width: 189px;
     text-align: center;
     font-size: clamp(18px, 1.45vw, 21px);
+  }
+  .btn-contact:hover {
+    background-color: #f86d94;
   }
 }
 
