@@ -101,7 +101,6 @@ body {
 .notosans {
     font-family: "Noto Sans JP", serif;
 }
-.noto
 
 /* flexレイアウト */
 .flex-row-center {
@@ -194,19 +193,19 @@ body {
 
     &::after {
         content: "";
-        width: 3vw;
-        height: 3vw;
+        width: 12px;
+        height: 12px;
         border-top: 2px solid #fff;
         border-right: 2px solid #fff;
-        transform: rotate(45deg);
+        transform: translate(3px ,1px) rotate(45deg);
         transition: all 0.3s ease;
         justify-self: center;
 
         @include media-min {
             border-top: 3px solid #fff;
-            border-right: 3px solid #fff;
-            width: 20px;
-            height: 20px;
+            border-right: 3px solid #fff; 
+            width: 1.3rem;
+            height: 1.3rem;
         }
     }
 }
@@ -363,8 +362,10 @@ header .btn-arrow {
     @include baseBtnArrow();
 
     &::after {
-        width: 1.5vw;
-        height: 1.5vw;
+        border-top: 1px solid #fff;
+        border-right: 1px solid #fff;
+        width: 6px;
+        height: 6px;
 
         @include media-min {
             border-top: 2px solid #fff;
