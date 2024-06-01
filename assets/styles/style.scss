@@ -98,10 +98,6 @@ body {
     font-family: "Outfit", serif;
 }
 
-.notosans {
-    font-family: "Noto Sans JP", serif;
-}
-
 /* flexレイアウト */
 .flex-row-center {
     display: flex;
@@ -422,7 +418,6 @@ header .btn-arrow {
     max-width: 500px;
     width: 100%;
     margin: 0 auto;
-    overflow: hidden;
 
     display: grid;
     grid-template-rows: 97px 1fr;
